@@ -42,12 +42,6 @@ Whether you're fetching JSON APIs, scraping HTML tables, or analyzing plain text
 
 ---
 
-## 📸 Screenshots
-
-> *(Optional: Add screenshots here using `![Alt Text](url)` if you upload them in your repo)*
-
----
-
 ## ⚠️ Disclaimer
 
 This tool is meant for educational and testing purposes only.  
