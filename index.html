@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DataMiner Pro - Web Scraper</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 DataMiner Pro</h1>
+            <p>Intelligent Web Scraping Tool - Test and extract data from any website</p>
+        </div>
+
+        <div class="copyright">
+            Developed by <span class="developer">Sai Rama Lakshmi</span> • © 2025 All Rights Reserved
+        </div>
+
+        <div class="main-content">
+            <!-- URL Debug Section -->
+            <div class="section">
+                <h2><span class="emoji">🔍</span>URL Debug & Test</h2>
+                <div class="input-group">
+                    <label for="debugUrl">Enter URL to test:</label>
+                    <input type="url" id="debugUrl" placeholder="https://example.com" />
+                </div>
+                <button class="btn" onclick="debugURL()">Test URL</button>
+                <button class="btn btn-success" onclick="quickScrape()">Quick Scrape</button>
+                
+                <div class="example-urls">
+                    <h4>Try these example URLs:</h4>
+                    <a class="example-url" onclick="setURL('https://httpbin.org/json')">https://httpbin.org/json (JSON API)</a>
+                    <a class="example-url" onclick="setURL('https://quotes.toscrape.com/')">https://quotes.toscrape.com/ (HTML Tables)</a>
+                    <a class="example-url" onclick="setURL('https://jsonplaceholder.typicode.com/users')">https://jsonplaceholder.typicode.com/users (JSON Data)</a>
+                    <a class="example-url" onclick="setURL('https://httpbin.org/html')">https://httpbin.org/html (HTML Content)</a>
+                </div>
+
+                <div class="loading" id="debugLoading">
+                    <div class="spinner"></div>
+                    <p>Testing URL...</p>
+                </div>
+                
+                <div id="debugResults"></div>
+            </div>
+
+            <!-- Multiple URL Scraping -->
+            <div class="section">
+                <h2><span class="emoji">📊</span>Batch URL Scraping</h2>
+                <p style="margin-bottom: 20px; color: #7f8c8d;">Add multiple URLs to scrape them all at once</p>
+                
+                <div id="urlList" class="url-list">
+                    <div class="url-item">
+                        <input type="url" placeholder="https://example.com" />
+                        <select>
+                            <option value="auto">Auto-detect</option>
+                            <option value="html_table">HTML Table</option>
+                            <option value="json_api">JSON API</option>
+                            <option value="dynamic_content">Dynamic Content</option>
+                        </select>
+                        <button class="btn btn-small btn-danger" onclick="removeURL(this)">Remove</button>
+                    </div>
+                </div>
+                
+                <button class="btn" onclick="addURL()">Add URL</button>
+                <button class="btn btn-success" onclick="scrapeMultiple()">Scrape All URLs</button>
+                <button class="btn btn-danger" onclick="clearResults()">Clear Results</button>
+
+                <div class="loading" id="batchLoading">
+                    <div class="spinner"></div>
+                    <p>Scraping URLs...</p>
+                </div>
+
+                <div id="batchResults"></div>
+            </div>
+
+            <!-- Statistics Dashboard -->
+            <div class="section">
+                <h2><span class="emoji">📈</span>Scraping Statistics</h2>
+                <div class="stats" id="statsContainer">
+                    <div class="stat-card">
+                        <div class="stat-number" id="totalAttempts">0</div>
+                        <div class="stat-label">Total Attempts</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="successfulScrapes">0</div>
+                        <div class="stat-label">Successful Scrapes</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="successRate">0%</div>
+                        <div class="stat-label">Success Rate</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="avgResponseTime">0ms</div>
+                        <div class="stat-label">Avg Response Time</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="developer-info">
+                Crafted with ❤️ by <span class="developer-name">Sai Rama Lakshmi</span>
+            </div>
+            <div>
+                Copyright © <span class="copyright-year">2025</span> DataMiner Pro. All rights reserved.
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
